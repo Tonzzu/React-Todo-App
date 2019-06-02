@@ -1,0 +1,22 @@
+.form-box {
+  /* position: relative; */
+  /* bottom: 30vh; */
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+
+}
+
+.label {
+  text-align: center;
+}
+
+.input {
+  width: 500px;
+}
+
+.button {
+  width: 100px;
+}
