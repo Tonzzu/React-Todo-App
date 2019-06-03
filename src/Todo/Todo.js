@@ -1,17 +1,21 @@
-import React, {Component} from 'react'
-import './Todo.css'
+import React from "react";
+import "./Todo.css";
 
-class Todo extends Component {
-  render() {
+const Todo = props => {
+  const tasks = props.taskList.map((task, index) => {
     return (
-      <div className="box todo">
-        <h3>Go To Buy Groceries</h3>
-        <button className="button is-danger">DELETE</button>
-
+      <div className="box todo" key={index}>
+        <h3>{task.name}</h3>
+        <button
+          className="button is-danger"
+          onClick={() => props.removeTask(index)}
+        >
+          DELETE
+        </button>
       </div>
-
-    )
-  }
-}
+    );
+  });
+  return <div>{tasks}</div>;
+};
 
 export default Todo;

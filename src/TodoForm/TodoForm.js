@@ -1,45 +1,59 @@
-import React, { Component } from "react";
+import React from "react";
 import "react-bulma-components/full";
 import "./TodoForm.css";
 
-class TodoForm extends Component {
+class TodoForm extends React.Component {
+  constructor(props) {
+    super(props);
 
-  state = {
-    todos: []
+    this.initialState = {
+      name: null
+    };
+    this.state = this.initialState;
   }
 
-  addTodo() {
-    // const todo = 
+  handleChange = event => {
+    const { name, value } = event.target;
+    // event.preventDefault();
+    this.setState({
+      [name]: value
+    });
+  };
 
-
-
-    return (
-      <div className="box todo">
-        <h3>Go To Buy Groceries</h3>
-        <button className="button is-danger">DELETE</button>
-
-      </div>
-
-    )
-
-  }
-
+  submitForm = () => {
+    this.props.handleSubmit(this.state);
+    // event.preventDefault();
+    this.setState({ name: null });
+  };
 
   render() {
+    const { name } = this.props;
+
     return (
-      <div className="box form-box">
+      <form className="box form-box">
         <label className="label">Add New Todo</label>
         <div className="field has-addons">
           <div className="control">
-            <input className="input" type="text" name="todo" value={this.state.todos} placeholder="Type here" />
+            <input
+              className="input"
+              type="text"
+              name="name"
+              value={name}
+              placeholder="Type here"
+              onChange={this.handleChange}
+              autoFocus
+            />
           </div>
           <div className="control">
-            <button 
-            onClick={this.addTodo}
-            className="button is-primary">ADD</button>
+            <input
+              type="button"
+              value="ADD"
+              className="button is-primary"
+              onClick={this.submitForm}
+            />
           </div>
         </div>
-      </div>
+      </form>
     );
   }
 }
