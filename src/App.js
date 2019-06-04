@@ -26,6 +26,9 @@ class App extends Component {
     const { tasks } = this.state;
     return (
       <div className="App">
+        <p style={{ color: "#aaa" }}>
+          Made with <span style={{ color: "red" }}>&hearts;</span> and React
+        </p>
         <TodoForm handleSubmit={this.handleSubmit} />
         <Todo taskList={tasks} removeTask={this.removeTask} />
       </div>

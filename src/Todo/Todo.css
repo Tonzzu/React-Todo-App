@@ -1,13 +1,12 @@
 .todo {
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: space-between;
-  width: 100%;
-  /* border: 1px solid blue; */
-
+  min-width: 40vw;
+  flex-wrap: wrap;
 }
-/* 
-.button {
-  float: right;
-} */
+
+@media (max-width: 750px) {
+  .todo {
+    width: 90vw;
+  }
+}
